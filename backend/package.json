@@ -2,8 +2,10 @@
   "name": "100stars_test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "start": "tsc && node dist/index.js",
+    "lint": "eslint . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +16,9 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "@types/mysql": "^2.15.26",
+    "express": "^4.17.1",
+    "mysql2": "^3.10.0",
+    "nodemon": "^3.1.3"
   }
 }

@@ -9,11 +9,10 @@ const app = (0, express_1.default)();
 const port = 4000;
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
-app.get("/", (req, res) => {
-    return res.send("Hello World!");
-});
 app.get("/getEmployee", employee_1.getEmployee);
 app.post("/createEmployee", employee_1.createEmployee);
+app.put("/updateEmployee", employee_1.updateEmployee);
+app.delete("/deleteEmployee", employee_1.deleteEmployee);
 app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
 });

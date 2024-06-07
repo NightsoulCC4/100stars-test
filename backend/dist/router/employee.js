@@ -57,8 +57,8 @@ const createEmployee = (req, res) => {
                     msg: JSON.stringify(err),
                 });
             else
-                return res.status(201).json({
-                    status: 201,
+                return res.status(200).json({
+                    status: 200,
                     msg: "Create employee success!",
                     data: result,
                 });
@@ -100,9 +100,9 @@ const updateEmployee = (req, res) => {
                     msg: JSON.stringify(err),
                 });
             else
-                return res.status(201).json({
-                    status: 201,
-                    msg: "Create employee success!",
+                return res.status(200).json({
+                    status: 200,
+                    msg: "Update employee success!",
                     data: result,
                 });
         });
@@ -125,9 +125,9 @@ const deleteEmployee = (req, res) => {
                     msg: JSON.stringify(err),
                 });
             else
-                return res.status(201).json({
-                    status: 201,
-                    msg: "Create employee success!",
+                return res.status(200).json({
+                    status: 200,
+                    msg: "Delete employee success!",
                     data: result,
                 });
         });

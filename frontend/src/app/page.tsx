@@ -1,6 +1,27 @@
+'use client'
+
 import Image from "next/image";
+import { getCustomer } from "../../service/customer";
+import { useEffect, useState } from "react";
+import { AxiosResponse } from "axios";
 
 export default function Home() {
+
+  const [data, setData] = useState<AxiosResponse | undefined>();
+
+  useEffect(() => {
+    const getData = async () => {
+      const res: AxiosResponse | undefined = await getCustomer();
+
+      if(res != null)
+        setData(res);
+    }
+
+    if (data == null)
+      getData();
+
+  })
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">

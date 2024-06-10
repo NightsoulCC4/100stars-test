@@ -10,7 +10,7 @@ const app = (0, express_1.default)();
 const port = 4000;
 var corsOptions = {
     origin: "http://localhost:3000",
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    optionsSuccessStatus: 200,
 };
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));

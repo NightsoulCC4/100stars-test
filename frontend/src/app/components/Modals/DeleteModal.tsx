@@ -7,6 +7,9 @@ const DeleteModal: React.FC<Modal> = ({
 }) => {
 
   const handleOk = () => {
+
+    
+
     setModalOpen(false);
   };
 
@@ -16,14 +19,14 @@ const DeleteModal: React.FC<Modal> = ({
 
   return (
     <Modal
-      title={"Edit employee information"}
+      title={"Delete employee information"}
       open={modalOpen}
       onOk={handleOk}
       onCancel={handleCancel}
       centered
       width={820}
       >
-          aaaa
+          Are you sure?
     </Modal>
   );
 };

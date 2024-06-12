@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, Flex, Table } from "antd";
 import type { TableProps } from "antd";
-import EditModal from "./EditModal";
-import DeleteModal from "./DeleteModal";
+import EditModal from "./Modals/EditModal";
+import DeleteModal from "./Modals/DeleteModal";
 
 const Tables: React.FC<Table> = ({ data }) => {
   const [editModalOpen, setEditModalOpen] = useState<boolean>(false);
@@ -62,12 +62,11 @@ const Tables: React.FC<Table> = ({ data }) => {
         <>
           <Flex gap="small" wrap>
             <Button
-              type="primary"
               onClick={() => setEditModalOpen(!editModalOpen)}
             >
               Edit
             </Button>
-            <Button danger>Delete</Button>
+            <Button onClick={() => setDeleteModalOpen(!deleteModalOpen)} danger>Delete</Button>
           </Flex>
           <EditModal
             modalOpen={editModalOpen}

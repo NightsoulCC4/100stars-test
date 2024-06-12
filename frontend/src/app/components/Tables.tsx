@@ -1,12 +1,9 @@
-import React, { useState } from "react";
-import { Button, Flex, Table } from "antd";
+import React from "react";
+import { Table } from "antd";
 import type { TableProps } from "antd";
-import EditModal from "./Modals/EditModal";
-import DeleteModal from "./Modals/DeleteModal";
+import Action from "./Action";
 
 const Tables: React.FC<Table> = ({ data }) => {
-  const [editModalOpen, setEditModalOpen] = useState<boolean>(false);
-  const [deleteModalOpen, setDeleteModalOpen] = useState<boolean>(false);
 
   const columns: TableProps<DataType>["columns"] = [
     {
@@ -60,24 +57,7 @@ const Tables: React.FC<Table> = ({ data }) => {
       key: "action",
       render: (_, record) => (
         <>
-          <Flex gap="small" wrap>
-            <Button
-              onClick={() => setEditModalOpen(!editModalOpen)}
-            >
-              Edit
-            </Button>
-            <Button onClick={() => setDeleteModalOpen(!deleteModalOpen)} danger>Delete</Button>
-          </Flex>
-          <EditModal
-            modalOpen={editModalOpen}
-            setModalOpen={setEditModalOpen}
-            record={record}
-          />
-          <DeleteModal
-            modalOpen={deleteModalOpen}
-            setModalOpen={setDeleteModalOpen}
-            id={record?.id}
-          />
+          <Action data={data} record={record} id={record?.id} />
         </>
       ),
     },

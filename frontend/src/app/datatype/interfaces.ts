@@ -17,7 +17,15 @@ interface Table {
 
 interface Modal {
   modalOpen: boolean;
-  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalOpen: (open: boolean) => void;
   record?: DataType;
   id?: string;
+  data?: DataType[];
+  setData?: (data: DataType[]) => void | undefined;
+}
+
+interface Action {
+  data: DataType[];
+  id: string | undefined;
+  record: DataType | undefined;
 }

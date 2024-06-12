@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import pool from "../connect";
 
 interface employeeParam {
-  id: number;
+  id: string;
   fname: string;
   lname: string;
   gender: number;
@@ -16,19 +16,29 @@ interface employeeParam {
 
 export const getEmployee = (req: Request, res: Response) => {
   pool.getConnection((err, connection) => {
-    connection.query("SELECT * FROM employee", (err, result) => {
-      if (err)
-        return res.status(500).json({
-          status: 500,
-          msg: JSON.stringify(err),
-        });
-      else
-        return res.status(200).json({
-          status: 200,
-          msg: "Get employee success!",
-          data: result,
-        });
-    });
+    try {
+      connection.query(
+        "SELECT * FROM employee ORDER BY id DESC",
+        (err, result) => {
+          if (err) {
+            return res.status(500).json({
+              status: 500,
+              msg: JSON.stringify(err),
+            });
+          } else {
+            return res.status(200).json({
+              status: 200,
+              msg: "Get employee success!",
+              data: result,
+            });
+          }
+        }
+      );
+    } catch (e) {
+      console.log(e);
+    } finally {
+      connection.release();
+    }
   });
 };
 

@@ -7,7 +7,7 @@ exports.deleteEmployee = exports.updateEmployee = exports.createEmployee = expor
 const connect_1 = __importDefault(require("../connect"));
 const getEmployee = (req, res) => {
     connect_1.default.getConnection((err, connection) => {
-        connection.query("SELECT * FROM employee", (err, result) => {
+        connection.query("SELECT * FROM employee ORDER BY id DESC", (err, result) => {
             if (err)
                 return res.status(500).json({
                     status: 500,
@@ -111,6 +111,7 @@ const updateEmployee = (req, res) => {
 exports.updateEmployee = updateEmployee;
 const deleteEmployee = (req, res) => {
     const { id } = req.body;
+    console.log(id);
     if (!id) {
         return res.status(400).json({
             status: 400,
@@ -134,4 +135,3 @@ const deleteEmployee = (req, res) => {
     });
 };
 exports.deleteEmployee = deleteEmployee;
-//# sourceMappingURL=employee.js.map

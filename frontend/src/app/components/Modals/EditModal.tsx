@@ -15,8 +15,6 @@ const EditModal: React.FC<Modal> = ({
     setModalOpen(false);
     };
     
-    console.log(record)
-
   return (
     <Modal
       title={"Edit employee information"}

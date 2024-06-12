@@ -1,14 +1,26 @@
 import React from "react";
 import { Modal } from "antd";
+import { deleteEmployee } from "@/app/service/employee";
 
 const DeleteModal: React.FC<Modal> = ({
   modalOpen,
   setModalOpen,
+  data,
+  setData,
+  id,
 }) => {
 
-  const handleOk = () => {
+  console.log(id);
 
-    
+  const handleOk = async () => {
+
+    const res: number | undefined = await deleteEmployee({id: id});
+
+    if (res === 200 && data) {
+      const newData: DataType[] = data?.filter((el) => el.id !== id) ?? [];
+
+      setData(newData);
+    }
 
     setModalOpen(false);
   };

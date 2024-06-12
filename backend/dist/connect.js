@@ -24,4 +24,3 @@ pool.getConnection((err, connection) => {
     }
 });
 exports.default = pool;
-//# sourceMappingURL=connect.js.map

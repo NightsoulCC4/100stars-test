@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const config = {
-    connectionLimit: 10,
     host: "localhost",
     user: "root",
     password: "1234",
@@ -9,4 +8,3 @@ const config = {
     database: "100stars",
 };
 exports.default = config;
-//# sourceMappingURL=config.js.map

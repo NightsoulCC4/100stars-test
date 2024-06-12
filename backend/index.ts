@@ -14,9 +14,9 @@ var corsOptions = {
   optionsSuccessStatus: 200,
 };
 
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
+app.use(express.json());
 
 app.get("/getEmployee", cors(corsOptions), getEmployee);
 app.post("/createEmployee", cors(corsOptions), createEmployee);

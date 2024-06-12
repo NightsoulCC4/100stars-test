@@ -3,8 +3,7 @@ import { Modal } from "antd";
 
 const createModal: React.FC<Modal> = ({
   modalOpen,
-    setModalOpen,
-  record
+  setModalOpen,
 }) => {
 
   const handleOk = () => {
@@ -14,8 +13,6 @@ const createModal: React.FC<Modal> = ({
   const handleCancel = () => {
     setModalOpen(false);
     };
-    
-    console.log(record)
 
   return (
     <Modal
